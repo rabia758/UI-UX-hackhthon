@@ -1,126 +1,252 @@
-import React from 'react'
-import { IoIosArrowForward, IoIosArrowUp } from "react-icons/io";
-import { TiTick } from 'react-icons/ti';
-import Image from 'next/image';
+import { client } from "@/sanity/lib/client";
+import React, { useState, useEffect } from "react";
+import {  IoIosFunnel } from "react-icons/io"; // Filter icon import
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"; // ShadCN components
 
-const Filter = () => {
-  return (
-    <div className="w-1/5 h-[1220px] mb-[250px] rounded-[20px] px-3  hidden  md:block border- border-[2px] border-gray-300 ">
-    <div className="flex justify-center items-center">
-
-    <div className="flex h-[27px] justify-center my-4 gap-28 px-6 items-center">
-      <h1 className="text-3xl font-bold">Filters</h1>
-       <Image src={"/images/10.png"} height={100} width={100} alt="frame-19" className="w-[70px] sm:w-[40px] h-[55px] mt-1 rounded-[68px]  pl-[15px] pr-[5px] pt-[12px] pb-[12px] text-[#F0F0F0]"></Image>
-    </div>
-    </div>
-    <hr className='w-72 mx-2 my-3 h-[2px] bg-gray-300'/>
-<div className="h-[160px] my-4">
-<ul className='mt-6'>
-
-
-
-
-  <li className='flex justify-between items-center mx-3 mb-3 hover:underline cursor-pointer text-xl text-black/60'>T-shirts <IoIosArrowForward /></li>
-  <li className='flex justify-between items-center mx-3 mb-3 hover:underline cursor-pointer text-xl text-black/60'>Shorts <IoIosArrowForward /></li>
-  <li className='flex justify-between items-center mx-3 mb-3 hover:underline cursor-pointer text-xl text-black/60'>Shirts <IoIosArrowForward /></li>
-  <li className='flex justify-between items-center mx-3 mb-3 hover:underline cursor-pointer text-xl text-black/60'>Hoodie <IoIosArrowForward /></li>
-  <li className='flex justify-between items-center mx-3 mb-3 hover:underline cursor-pointer text-xl text-black/60'>Jeans <IoIosArrowForward /></li>
-</ul>
-</div>
-<hr className='w-72 mx-2 my-3 h-[2px] bg-gray-300'/>
-
-<div className="my-4 h-[90px]">
-
-<div className="flex justify-between mb-8 items-center">
-<h1 className="text-3xl font-bold">Price</h1>
-<IoIosArrowUp size={15}/>
-</div>
-<div className="">
-<div className="w-72 h-[1px]   bg-gray-300">
-  <div className="flex justify-center   items-center">
-
-  <div className="w-5 h-5 mt-[-10px]  rounded-full bg-black"></div>
-  <div className="w-32 h-2 mb-4 bg-black"></div>
-  <div className="w-5 h-5 mt-[-10px] rounded-full bg-black"></div>
-  </div>
-  <div className="text-xl mb-12 font-semibold flex justify-center items-center gap-20">
-    <p className="">$50</p>
-    <p className="">$200</p>
-  </div>
-</div>
-  </div>
-</div>
-
-<hr className='w-72 mx-2  h-[2px] bg-gray-300'/>
-
-<div className="my-4 h-[197px]">
-<div className="h-[27px]">
-<div className="flex justify-between mb-4 items-center">
-<h1 className="text-[30px] font-bold">Colors</h1>
-<IoIosArrowUp size={15}/>
-</div>
-<div className="grid grid-cols-5 gap-2  h-[90px] space-y-4">
-<div className="w-[37px] h-[37px] mt-3 bg-[#00C12B] border-[1px] border-gray-200 rounded-full flex justify-center items-center  "><TiTick size={25}  className="text-[#00C12B] hover:text-white" /></div>
-<div className="w-[37px] h-[37px] bg-[#F50606] border-[1px] border-gray-200 rounded-full flex justify-center items-center  "><TiTick size={25}  className="text-[#F50606] hover:text-white" /></div>
-<div className="w-[37px] h-[37px] bg-[#F5DD06] border-[1px] border-gray-200 rounded-full flex justify-center items-center  "><TiTick size={25}  className="text-[#F5DD06] hover:text-white" /></div>
-<div className="w-[37px] h-[37px] bg-[#F57906] border-[1px] border-gray-200 rounded-full flex justify-center items-center  "><TiTick size={25}  className="text-[#F57906] hover:text-white" /></div>
-<div className="w-[37px] h-[37px] bg-[#06CAF5] border-[1px] border-gray-200 rounded-full flex justify-center items-center  "><TiTick size={25}  className="text-[#06CAF5] hover:text-white" /></div>
-<div className="w-[37px] h-[37px] bg-[#063AF5] border-[1px] border-gray-200 rounded-full flex justify-center items-center  "><TiTick size={25}  className="text-[#063AF5] hover:text-white" /></div>
-<div className="w-[37px] h-[37px] bg-[#7D06F5] border-[1px] border-gray-200 rounded-full flex justify-center items-center  "><TiTick size={25}  className="text-[#7D06F5] hover:text-white" /></div>
-<div className="w-[37px] h-[37px] bg-[#F506A4] border-[1px] border-gray-200 rounded-full flex justify-center items-center  "><TiTick size={25}  className="text-[#F506A4] hover:text-white" /></div>
-<div className="w-[37px] h-[37px] bg-[#FFFFFF] border-[1px] border-gray-200 rounded-full flex justify-center items-center  "><TiTick size={25}  className="text-[#FFFFFF] hover:text-black" /></div>
-<div className="w-[37px] h-[37px] bg-[#000000] border-[1px] border-gray-200 rounded-full flex justify-center items-center  "><TiTick size={25}  className="text-[#000000] hover:text-white" /></div>
-</div>
-</div>
-</div>
-<hr className='w-72 mx-2  h-[2px] bg-gray-300'/>
-
-<div className="h-[274px] my-4">
-<div className="flex justify-between mb-4 items-center">
-<h1 className="text-[30px] font-bold">Size</h1>
-<IoIosArrowUp size={15}/>
-</div>
-<div className="h-[227px] grid grid-cols-2 ">
-<div className="w-[96px] h-[39px] rounded-[28px] border-[1px] border-gray-100 bg-gray-200 hover:bg-black hover:text-white flex justify-center text-black/60 items-center">XX-Small</div>
-<div className="w-[96px] h-[39px] rounded-[28px] border-[1px] border-gray-100 bg-gray-200 hover:bg-black hover:text-white flex justify-center text-black/60 items-center">X-Small</div>
-<div className="w-[96px] h-[39px] rounded-[28px] border-[1px] border-gray-100 bg-gray-200 hover:bg-black hover:text-white flex justify-center text-black/60 items-center">Small</div>
-<div className="w-[96px] h-[39px] rounded-[28px] border-[1px] border-gray-100 bg-gray-200 hover:bg-black hover:text-white flex justify-center text-black/60 items-center">Medium</div>
-<div className="w-[96px] h-[39px] rounded-[28px] border-[1px] border-gray-100 bg-gray-200 hover:bg-black hover:text-white flex justify-center text-black/60 items-center">Large</div>
-<div className="w-[96px] h-[39px] rounded-[28px] border-[1px] border-gray-100 bg-gray-200 hover:bg-black hover:text-white flex justify-center text-black/60 items-center">X-Large</div>
-<div className="w-[96px] h-[39px] rounded-[28px] border-[1px] border-gray-100 bg-gray-200 hover:bg-black hover:text-white flex justify-center text-black/60 items-center">XX-Large</div>
-<div className="w-[96px] h-[39px] rounded-[28px] border-[1px] border-gray-100 bg-gray-200 hover:bg-black hover:text-white flex justify-center text-black/60 items-center">3X-Large</div>
-<div className="w-[96px] h-[39px] rounded-[28px] border-[1px] border-gray-100 bg-gray-200 hover:bg-black hover:text-white flex justify-center text-black/60 items-center">4X-Large</div>
-</div>
-</div>
-
-
-<hr className='w-72 mx-2  h-[2px] bg-gray-300'/>
-
-<div className="h-[171px] my-4">
-<div className="flex justify-between mb-4 items-center">
-<h1 className="text-[30px] font-bold">Dress Style</h1>
-<IoIosArrowUp size={15}/>
-</div>
-<div className="h-[124px]">
-<ul className='mt-6'>
-
-
-
-
-
-
-
-<li className='flex justify-between items-center mx-3 mb-3 hover:underline cursor-pointer text-xl text-black/60'>Casual <IoIosArrowForward /></li>
-<li className='flex justify-between items-center mx-3 mb-3 hover:underline cursor-pointer text-xl text-black/60'>Formal <IoIosArrowForward /></li>
-<li className='flex justify-between items-center mx-3 mb-3 hover:underline cursor-pointer text-xl text-black/60'>Party <IoIosArrowForward /></li>
-<li className='flex justify-between items-center mx-3 mb-3 hover:underline cursor-pointer text-xl text-black/60'>Gym <IoIosArrowForward /></li>
-
-</ul>
-</div>
-</div>
-<button className="w-[200px] hover:bg-black hover:text-white text-black/60 h-[48px] my-12 border-[1px] border-gray-200 bg-gray-200 m-3 rounded-[30px] text-[16px]">Apply Filter</button>
-    </div>
-  )
+interface FilterProps {
+  selectedCategory: string;
+  setSelectedCategory: (category: string) => void;
+  selectedColors: string[];
+  setSelectedColors: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedSizes: string[];
+  setSelectedSizes: React.Dispatch<React.SetStateAction<string[]>>;
+  priceRange: [number, number];
+  setPriceRange: (priceRange: [number, number]) => void;
 }
 
-export default Filter
+type Category = string;
+type Color = string;
+type Size = string;
+
+const Filter = ({
+  selectedCategory,
+  setSelectedCategory,
+  selectedColors,
+  setSelectedColors,
+  selectedSizes,
+  setSelectedSizes,
+  priceRange,
+  setPriceRange,
+}: FilterProps) => {
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [colors, setColors] = useState<Color[]>([]);
+  const [sizes, setSizes] = useState<Size[]>([]);
+
+  // const [expandedSections, setExpandedSections] = useState<{
+  //   price: boolean;
+  //   colors: boolean;
+  //   sizes: boolean;
+  // }>({
+  //   price: true,
+  //   colors: true,
+  //   sizes: true,
+  // });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const categoryQuery = '*[_type == "products"]{category}';
+        const categoriesData = await client.fetch<{ category: string }[]>(categoryQuery);
+        const uniqueCategories = [...new Set(categoriesData.map((item) => item.category))];
+        setCategories(uniqueCategories);
+
+        const colorQuery = '*[_type == "products"]{colors}';
+        const colorsData = await client.fetch<{ colors: string[] }[]>(colorQuery);
+        const allColors = colorsData.flatMap((item) => item.colors);
+        const uniqueColors = [...new Set(allColors)];
+        setColors(uniqueColors);
+
+        const sizeQuery = '*[_type == "products"]{sizes}';
+        const sizesData = await client.fetch<{ sizes: string[] }[]>(sizeQuery);
+        const allSizes = sizesData.flatMap((item) => item.sizes);
+        const uniqueSizes = [...new Set(allSizes)];
+        setSizes(uniqueSizes);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleCategoryClick = (category: Category) => {
+    setSelectedCategory(category);
+  };
+
+  const handleColorClick = (color: Color) => {
+    setSelectedColors((prev: string[]) => {
+      return prev.includes(color) ? prev.filter((c) => c !== color) : [...prev, color];
+    });
+  };
+
+  const handleSizeClick = (size: Size) => {
+    setSelectedSizes((prev: string[]) => {
+      return prev.includes(size) ? prev.filter((s) => s !== size) : [...prev, size];
+    });
+  };
+
+  return (
+    <div className=" w-1/5 h-full p-5 sticky top-0 border border-gray-300">
+      {/* Mobile Dropdown Trigger (Filter Icon) */}
+      <div className="block md:hidden">
+        
+          <DropdownMenu>
+          <DropdownMenuTrigger className="p-2 rounded-md bg-gray-300 cursor-pointer">
+            <IoIosFunnel size={24} />
+          </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-full bg-white p-4 shadow-md">
+              {/* Category Filter */}
+              <div className="mb-4">
+                <h3 className="font-bold text-lg mb-2">Category</h3>
+                {categories.map((category) => (
+                  <DropdownMenuItem
+                    key={category}
+                    onClick={() => handleCategoryClick(category)}
+                    className={`cursor-pointer mb-3 ${selectedCategory === category ? "text-black font-semibold" : "text-gray-600"}`}
+                  >
+                    {category}
+                  </DropdownMenuItem>
+                ))}
+              </div>
+
+              {/* Price Filter */}
+              <div className="mb-4">
+                <h3 className="font-bold text-lg mb-2">Price</h3>
+                <input
+                  type="range"
+                  min="0"
+                  max="500"
+                  value={priceRange[0]}
+                  onChange={(e) => setPriceRange([parseInt(e.target.value), priceRange[1]])}
+                  className="w-full"
+                />
+                <input
+                  type="range"
+                  min="0"
+                  max="500"
+                  value={priceRange[1]}
+                  onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
+                  className="w-full"
+                />
+                <div className="flex justify-between text-lg font-semibold">
+                  <p>${priceRange[0]}</p>
+                  <p>${priceRange[1]}</p>
+                </div>
+              </div>
+
+              {/* Color Filter */}
+              <div className="mb-4">
+                <h3 className="font-bold text-lg mb-2">Colors</h3>
+                <div className="grid grid-cols-3 gap-2">
+                  {colors.map((color) => (
+                    <div
+                      key={color}
+                      onClick={() => handleColorClick(color)}
+                      className={`w-8 h-8 rounded-full cursor-pointer border ${selectedColors.includes(color) ? "ring-2 ring-black" : ""}`}
+                      style={{ backgroundColor: color }}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Size Filter */}
+              <div className="mb-4">
+                <h3 className="font-bold text-lg mb-2">Sizes</h3>
+                <div className="flex flex-wrap gap-2">
+                  {sizes.map((size) => (
+                    <button
+                      key={size}
+                      onClick={() => handleSizeClick(size)}
+                      className={`px-4 py-2 rounded-lg mb-2 ${selectedSizes.includes(size) ? "bg-black text-white" : "bg-gray-200"}`}
+                    >
+                      {size}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
+       
+      </div>
+
+      {/* Desktop Sidebar */}
+      <div className="hidden md:block">
+        <h2 className="text-xl font-semibold mb-4">Filters</h2>
+
+        {/* Category Filter */}
+        <div className="mb-6">
+          <h3 className="font-bold text-lg mb-2">Category</h3>
+          <ul>
+            {categories.map((category) => (
+              <li
+                key={category}
+                onClick={() => handleCategoryClick(category)}
+                className={`cursor-pointer mb-3 ${selectedCategory === category ? "text-black font-semibold" : "text-gray-600"}`}
+              >
+                {category}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Price Filter */}
+        <div className="mb-6">
+          <h3 className="font-bold text-lg mb-2">Price</h3>
+          <input
+            type="range"
+            min="0"
+            max="500"
+            value={priceRange[0]}
+            onChange={(e) => setPriceRange([parseInt(e.target.value), priceRange[1]])}
+            className="w-full"
+          />
+          <input
+            type="range"
+            min="0"
+            max="500"
+            value={priceRange[1]}
+            onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
+            className="w-full"
+          />
+          <div className="flex justify-between text-lg font-semibold">
+            <p>${priceRange[0]}</p>
+            <p>${priceRange[1]}</p>
+          </div>
+        </div>
+
+        {/* Color Filter */}
+        <div className="mb-6">
+          <h3 className="font-bold text-lg mb-2">Colors</h3>
+          <div className="grid grid-cols-3 gap-2">
+            {colors.map((color) => (
+              <div
+                key={color}
+                onClick={() => handleColorClick(color)}
+                className={`w-8 h-8 rounded-full cursor-pointer border ${selectedColors.includes(color) ? "ring-2 ring-black" : ""}`}
+                style={{ backgroundColor: color }}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Size Filter */}
+        <div className="mb-6">
+          <h3 className="font-bold text-lg mb-2">Sizes</h3>
+          <div className="flex flex-wrap gap-2">
+            {sizes.map((size) => (
+              <button
+                key={size}
+                onClick={() => handleSizeClick(size)}
+                className={`px-4 py-2 rounded-lg mb-2 ${selectedSizes.includes(size) ? "bg-black text-white" : "bg-gray-200"}`}
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Filter;

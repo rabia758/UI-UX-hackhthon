@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,6 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider dynamic>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -35,7 +38,14 @@ export default function RootLayout({
         <Navbar/>
         {children}
         <Footer/>
+        <Toaster position="top-center" toastOptions={{
+          style:{
+            background:"#000000",
+            color:"#FFFFFF"
+          }
+        }} />
       </body>
     </html>
+    </ClerkProvider>
   );
 }

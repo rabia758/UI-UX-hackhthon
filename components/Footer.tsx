@@ -1,134 +1,110 @@
-
 import Image from "next/image";
-
 import Link from "next/link";
 import React from "react";
 import { FaFacebookF, FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 import { FaArrowUp } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
-   
-
-
-
-
-
 
 function Footer() {
   return (
     <main className="w-full bg-[#F0F0F0] mt-60 relative">
       {/* Overflowing Black Div */}
-      <div className="absolute md:-top-[90px] -top-[120px] left-[50%] transform -translate-x-1/2 w-[80%] md:h-[180px] h-[250px] bg-black rounded-[20px] flex md:flex-row flex-col justify-between md:px-[36px] md:py-[64px] py-[30px] items-center shadow-lg">
-        {/* Add content inside the black div if needed */}
-        <div className="w-1/2 text-white font-bold text-left md:text-[40px] text-[22px]">
-        STAY UPTO DATE ABOUT OUR LATEST OFFERS
+      <div className="absolute md:-top-[90px] -top-[120px] left-[50%] transform -translate-x-1/2 w-[90%] sm:w-[80%] md:h-[180px] h-[250px] bg-black rounded-[20px] flex flex-col md:flex-row justify-between md:px-10 px-6 py-8 items-center shadow-lg">
+        <div className="md:w-1/2 text-white font-bold text-center md:text-left text-lg sm:text-xl md:text-3xl">
+          STAY UP TO DATE ABOUT OUR LATEST OFFERS
         </div>
-        <div className="space-y-4">
-           <div className="flex items-center md:w-[349px] w-[300px]  gap-5 md:h-[48px] h-[40px] py-4  px-4 border-[1px] border-gray-300 bg-gray-100 rounded-[50px] ">
-                          <CiMail  size={20} className="text-black/40   font-semibold" />
-                        <input
-                          type="text"
-                          placeholder="Enter your email address"
-                          className="bg-transparent text-[16px]  outline-none "
-                        />
-                      </div>
-           <div className="text-center   md:w-[349px]  w-[300px] md:h-[48px] h-[40px] py-4 px-4 border-[1px] border-gray-300 bg-gray-100 rounded-[50px] ">
-                          
-                        <input
-                          type="text"
-                          placeholder="Subscribe to Newsletter"
-                          className="bg-transparent text-[16px]   font-bold  outline-none "
-                        />
-                      </div>
+        <div className="space-y-4 w-full md:w-auto">
+          <div className="flex items-center w-full sm:w-[300px] md:w-[349px] gap-4 h-[45px] md:h-[48px] px-4 border border-gray-300 bg-gray-100 rounded-full">
+            <CiMail size={20} className="text-black/40" />
+            <input
+              type="text"
+              placeholder="Enter your email address"
+              className="bg-transparent text-sm md:text-base w-full outline-none"
+            />
+          </div>
+          <button className="w-full sm:w-[300px] md:w-[349px] h-[45px] md:h-[48px] text-center bg-gray-100 border border-gray-300 rounded-full font-bold text-sm md:text-base">
+            Subscribe to Newsletter
+          </button>
         </div>
       </div>
 
       {/* Footer Content */}
-      <div className="wrapper pt-[120px] pb-20 flex flex-col text-lg bg-[#F0F0F0] text-[#ACABC3]">
-        <div></div>
-        <div className="md:flex block justify-center items-center gap-20">
+      <div className="pt-[120px] pb-20 flex flex-col text-lg bg-[#F0F0F0] text-[#ACABC3]">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 px-6 sm:px-12">
           {/* Logo and Description */}
-          <li className="text-left md:mr-20 mr-0 sm:text-left">
-            <div className="flex flex-col items-left">
-              <Link href="/" className="text-4xl mb-8 text-black md:text-4xl font-extrabold">
-                SHOP.CO
-              </Link>
-              <p className="text-xl w-auto md:w-[300px] mb-8 text-left">
-                We have clothes that suit your style and which you&#39;re proud to wear. From women to men.
-              </p>
-              <div className="flex gap-x-6 mb-8 justify-start">
-                <FaTwitter className="h-[25px] bg-white hover:bg-black hover:text-white  rounded-full w-[25px] p-1 text-black" />
-                <FaFacebookF className="h-[25px] bg-white hover:bg-black hover:text-white  rounded-full w-[25px] p-1 text-black" />
-                <FaLinkedin className="h-[25px] bg-white hover:bg-black hover:text-white rounded-full  w-[25px] p-1 text-black" />
-                <FaGithub  className="h-[25px] bg-white hover:bg-black hover:text-white rounded-full mr-12 w-[25px] p-1 text-black" />
-              </div>
+          <div className="flex flex-col items-center md:items-start">
+            <Link href="/" className="text-4xl mb-6 mt-4 text-black font-extrabold">
+              SHOP.CO
+            </Link>
+            <p className="text-center md:text-left text-sm sm:text-base max-w-xs md:max-w-sm mb-6">
+              We have clothes that suit your style and which you&#39;re proud to wear. From women to men.
+            </p>
+            <div className="flex gap-4">
+              <FaTwitter className="h-8 w-8 bg-white hover:bg-black hover:text-white rounded-full p-1 text-black" />
+              <FaFacebookF className="h-8 w-8 bg-white hover:bg-black hover:text-white rounded-full p-1 text-black" />
+              <FaLinkedin className="h-8 w-8 bg-white hover:bg-black hover:text-white rounded-full p-1 text-black" />
+              <FaGithub className="h-8 w-8 bg-white hover:bg-black hover:text-white rounded-full p-1 text-black" />
             </div>
-          </li>
+          </div>
 
           {/* Footer Links */}
-          <ul className="grid md:grid-cols-4 grid-cols-2 justify-center items-center sm:items-start gap-12 sm:gap-32 p-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 md:gap-20 text-center md:text-left">
             {/* Company Section */}
-            <li>
-              <ul className="gap-3 flex flex-col text-center space-y-2 sm:text-left">
-                <li>
-                  <h1 className="font-semibold mb-7 text-black text-2xl">COMPANY</h1>
-                </li>
-                <li><p className="text-base">About</p></li>
-                <li><p className="text-base">Features</p></li>
-                <li><p className="text-base">Works</p></li>
-                <li><p className="text-base">Career</p></li>
+            <div>
+              <h1 className="font-semibold mb-5 text-black text-lg sm:text-xl">COMPANY</h1>
+              <ul className="space-y-2 text-sm sm:text-base">
+                <li>About</li>
+                <li>Features</li>
+                <li>Works</li>
+                <li>Career</li>
               </ul>
-            </li>
+            </div>
 
-            {/* Customer Care Section */}
-            <li>
-              <ul className="gap-3 flex flex-col text-center space-y-2 sm:text-left">
-                <li>
-                  <h1 className="font-semibold mb-7 text-black text-2xl">HELP</h1>
-                </li>
-                <li><p className="text-base">Customer Support</p></li>
-                <li><p className="text-base">Delivery Details</p></li>
-                <li><p className="text-base">Terms & Conditions</p></li>
-                <li><p className="text-base">Privacy Policy</p></li>
+            {/* Help Section */}
+            <div>
+              <h1 className="font-semibold mb-5 text-black text-lg sm:text-xl">HELP</h1>
+              <ul className="space-y-2 text-sm sm:text-base">
+                <li>Customer Support</li>
+                <li>Delivery Details</li>
+                <li>Terms & Conditions</li>
+                <li>Privacy Policy</li>
               </ul>
-            </li>
+            </div>
 
             {/* FAQ Section */}
-            <li>
-              <ul className="gap-3 flex flex-col space-y-2 text-center sm:text-left">
-                <li>
-                  <h1 className="font-semibold mb-7 text-[#0D0E43] text-2xl">FAQ</h1>
-                </li>
-                <li><p className="text-base">Account</p></li>
-                <li><p className="text-base">Manage Deliveries</p></li>
-                <li><p className="text-base">Orders</p></li>
-                <li><p className="text-base">Payments</p></li>
+            <div>
+              <h1 className="font-semibold mb-5 text-black text-lg sm:text-xl">FAQ</h1>
+              <ul className="space-y-2 text-sm sm:text-base">
+                <li>Account</li>
+                <li>Manage Deliveries</li>
+                <li>Orders</li>
+                <li>Payments</li>
               </ul>
-            </li>
+            </div>
 
             {/* Resources Section */}
-            <li>
-              <ul className="gap-3 flex flex-col space-y-2 text-center sm:text-left">
-                <li>
-                  <h1 className="font-semibold mb-7 text-[#0D0E43] text-2xl">RESOURCES</h1>
-                </li>
-                <li><p className="text-base">Free eBooks</p></li>
-                <li><p className="text-base">Development Tutorial</p></li>
-                <li><p className="text-base">How to - Blog</p></li>
-                <li><p className="text-base">YouTube Playlist</p></li>
+            <div>
+              <h1 className="font-semibold mb-5 text-black text-lg sm:text-xl">RESOURCES</h1>
+              <ul className="space-y-2 text-sm sm:text-base">
+                <li>Free eBooks</li>
+                <li>Development Tutorial</li>
+                <li>How to - Blog</li>
+                <li>YouTube Playlist</li>
               </ul>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <hr className="wrapper h-[2px] bg-gray-200"/>
+
+      <hr className="h-[2px] bg-gray-200 mx-6 sm:mx-12" />
 
       {/* Footer Bottom */}
-      <div className="flex justify-between flex-col md:flex-row w-full items-center text-[#9DA0AE] p-4 px-36">
-        <p className="mb-8 md:mb-0">Shop.co &copy; 2000-2023, All Rights Reserved</p>
-        <div className="flex justify-center items-center">
-          <Image src="/images/1.png" alt="cards" width={300} height={300} />
+      <div className="flex flex-col md:flex-row justify-between items-center text-[#9DA0AE] p-6 sm:px-12 md:px-36">
+        <p className="mb-6 md:mb-0 text-sm sm:text-base">Shop.co &copy; 2000-2023, All Rights Reserved</p>
+        <div className="flex items-center space-x-4">
+          <Image src="/images/1.png" alt="cards" width={150} height={40} className="w-32 sm:w-40 md:w-52" />
           <Link href="#">
-            <FaArrowUp className="size-8 cursor-pointer text-[#0D0E43]" />
+            <FaArrowUp className="size-6 sm:size-8 cursor-pointer text-[#0D0E43]" />
           </Link>
         </div>
       </div>
@@ -137,5 +113,3 @@ function Footer() {
 }
 
 export default Footer;
-
-

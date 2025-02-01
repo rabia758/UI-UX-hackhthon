@@ -1,5 +1,6 @@
 import Arrival from "@/components/Arrival";
-import Dress from "@/components/Dress";
+import CategoryDisplay from "@/components/Dress";
+
 import HeroSection from "@/components/HeroSection";
 import Selling from "@/components/Selling";
 import Slider from "@/components/Slider";
@@ -11,7 +12,7 @@ export default function Home() {
    <HeroSection/>
    <Arrival/>
    <Selling/>
-   <Dress/>
+  <CategoryDisplay/>
    <Slider/>
    </main>
   );

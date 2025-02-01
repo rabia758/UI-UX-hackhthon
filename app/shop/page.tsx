@@ -1,10 +1,13 @@
-import ProductDetails from '@/components/ProductsDetails'
+
+import ProductList from '@/components/ProductList'
+import { getAllProducts } from '@/sanity/lib/quires'
 import React from 'react'
 
-const Shop = () => {
+const Shop = async () => {
+  const products = await getAllProducts()
   return (
     <div className='wrapper'>
-<ProductDetails/>
+<ProductList products={products}/>
     </div>
   )
 }

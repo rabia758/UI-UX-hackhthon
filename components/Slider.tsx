@@ -58,55 +58,57 @@ export default function Review() {
   ];
 
   return (
-    <div className="wrapper mx-8 relative">
+    <div className="wrapper mx-auto px-4 relative max-w-screen-lg">
       {/* Title and Navigation */}
-      <div className="flex justify-between items-center mx-8">
-        <h2 className="text-5xl text-center font-extrabold md:text-left mb-8">
+      <div className="flex justify-between items-center">
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-6">
           OUR HAPPY CUSTOMERS
         </h2>
-        <div className="flex justify-center items-center gap-4">
-          {/* Left Arrow */}
+        <div className="flex items-center gap-4">
           <button
-            className="w-12 h-12 flex justify-center items-center bg-gray-200 rounded-full hover:bg-gray-300"
+            className="w-10 h-10 md:w-12 md:h-12 flex justify-center items-center bg-gray-200 rounded-full hover:bg-gray-300"
             onClick={handlePrev}
           >
-            <FaArrowLeft size={15} />
+            <FaArrowLeft size={18} />
           </button>
-          {/* Right Arrow */}
           <button
-            className="w-12 h-12 flex justify-center items-center bg-gray-200 rounded-full hover:bg-gray-300"
+            className="w-10 h-10 md:w-12 md:h-12 flex justify-center items-center bg-gray-200 rounded-full hover:bg-gray-300"
             onClick={handleNext}
           >
-            <FaArrowRight size={15} />
+            <FaArrowRight size={18} />
           </button>
         </div>
       </div>
 
       {/* Reviews Slider */}
-      <div className="overflow-x-auto lg:overflow-hidden">
-        <div className="flex lg:justify-center gap-6 lg:gap-4">
+      <div className="overflow-x-auto lg:overflow-hidden scroll-smooth snap-x snap-mandatory">
+        <div className="flex flex-nowrap justify-start lg:justify-center gap-4">
           {visibleReviews.map((review, index) => (
             <div
               key={index}
-              className="flex-none lg:flex-1 w-[90%] sm:w-[400px] lg:w-[300px] h-[250px] p-4 border rounded-lg shadow-md bg-white"
+              className="flex-none w-[90%] sm:w-[350px] md:w-[320px] h-auto p-4 border rounded-lg shadow-md bg-white snap-start"
             >
               {/* Rating */}
-              <div className="flex justify-start gap-2 mb-4 items-center">
-                <FaStar className="text-[#FFC633]" />
-                <FaStar className="text-[#FFC633]" />
-                <FaStar className="text-[#FFC633]" />
-                <FaStar className="text-[#FFC633]" />
-                <FaStar className="text-[#FFC633]" />
+              <div className="flex gap-1 mb-3">
+                {Array(5)
+                  .fill(null)
+                  .map((_, i) => (
+                    <FaStar key={i} className="text-[#FFC633]" />
+                  ))}
               </div>
+
               {/* Reviewer Info */}
               <div className="flex items-center mb-2">
-                <span className="text-2xl font-bold mr-2">{review.name}</span>
-                <div className="w-7 h-7 rounded-full bg-green-600 flex justify-center items-center text-white">
-                  <TiTick size={20} />
+                <span className="text-lg md:text-2xl font-bold mr-2">
+                  {review.name}
+                </span>
+                <div className="w-6 h-6 md:w-7 md:h-7 rounded-full bg-green-600 flex justify-center items-center text-white">
+                  <TiTick size={18} />
                 </div>
               </div>
+
               {/* Review Text */}
-              <p className="text-xl text-gray-600 mb-4">{review.text}</p>
+              <p className="text-sm md:text-lg text-gray-600">{review.text}</p>
             </div>
           ))}
         </div>

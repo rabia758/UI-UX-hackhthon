@@ -1,9 +1,9 @@
 
 import Link from "next/link";
-import { IoIosArrowDown } from "react-icons/io";
+
 import { FaSearch } from "react-icons/fa";
-import { FiShoppingCart } from "react-icons/fi";
-import { MdOutlineAccountCircle } from "react-icons/md";
+
+// import CartIcon from "./CartIcon";
 import { IoMenu } from "react-icons/io5";
 import {
   Sheet,
@@ -14,18 +14,21 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
+import CartIcon from "./CartIcon";
+
   
 
-export default function Navbar() {
+export default async function Navbar() {
+  
   return (
 
  
-    <nav className="wrapper   mb-12 h-[40px] bg-white shadow-sm p-6">
+    <nav className="wrapper   mb-12 h-[40px] bg-white shadow-sm md:p-6 p-1">
       <div className="  px-2">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex md:items-center items-start justify-between  h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-4xl  md:text-5xl font-extrabold">
+            <Link href="/" className="sm:text-4xl text-3xl md:text-5xl font-extrabold">
             SHOP.CO 
             </Link>
           </div>
@@ -34,7 +37,7 @@ export default function Navbar() {
 
 
 
-    <Link href="/shop">  <li className="flex justify-center hover:underline hover:text-2xl hover:font-semibold items-center gap-2"> Shop <IoIosArrowDown/></li></Link>
+    <Link href="/product">  <li className="flex justify-center hover:underline hover:text-2xl hover:font-semibold items-center gap-2"> Shop </li></Link>
         <li className="hover:underline hover:text-2xl hover:font-semibold"><Link href="/sale"> On Sale</Link></li>
         <li className="hover:underline hover:text-2xl hover:font-semibold"><Link href="/arrival"> New Arrivals</Link></li>
         <li className="hover:underline hover:text-2xl hover:font-semibold"><Link href="/brands"> Brands</Link></li>
@@ -44,24 +47,31 @@ export default function Navbar() {
          
 
           {/* Search and Icons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center sm:space-x-4 space-x-1">
             {/* Search Bar - hidden on mobile */}
-            <div className="hidden md:flex items-center w-[577px] gap-5 h-[48px] py-4 px-10 border-[1px] border-gray-300 bg-gray-100 rounded-[50px] ">
+            <Link href="/search">
+            <form action="/search" className="hidden md:flex items-center w-[577px] gap-5 h-[48px] py-4 px-10 border-[1px] border-gray-300 bg-gray-100 rounded-[50px] ">
                 <FaSearch size={20} className="text-black/40   font-semibold" />
               <input
-                type="text"
-                placeholder="Search for products..."
-                className="bg-transparent text-[16px]  outline-none w-48 lg:w-64"
-              />
-            </div>
+                 type="text"
+                 name="query"
+                 placeholder="Search for products..."
+                 className="bg-transparent text-[16px]  outline-none w-48 lg:w-64"
+                 />
+            </form>
+                 </Link>
+                 <Link href="/cart">
+               <CartIcon />
+             </Link>
 
             {/* Icons */}
-            <div className="flex ml-6 text-2xl md:text-4xl items-center space-x-3 sm:space-x-8">
+            <Link href="/search">
+            <form action="/search"  className="flex ml-6 text-2xl md:text-4xl items-center space-x-3 sm:space-x-8">
                 <FaSearch className="md:text-black/40 md:hidden text-black  font-semibold" />
-           <Link href="/cart"> <FiShoppingCart  /></Link>
-           < MdOutlineAccountCircle  />
-            </div>
-
+  
+             
+            </form>
+</Link>
             {/* Mobile menu button */}
             <div className="md:hidden ">
            
@@ -82,7 +92,7 @@ export default function Navbar() {
 
 
 
-    <Link href="/shop">  <li className="flex justify-center hover:underline hover:text-2xl hover:font-semibold items-center gap-2"> Shop <IoIosArrowDown/></li></Link>
+    <Link href="/product">  <li className="flex justify-center hover:underline hover:text-2xl hover:font-semibold items-center gap-2"> Shop </li></Link>
         <li className="hover:underline hover:text-2xl hover:font-semibold"><Link href="/sale"> On Sale</Link></li>
         <li className="hover:underline hover:text-2xl hover:font-semibold"><Link href="/arrival"> New Arrivals</Link></li>
         <li className="hover:underline hover:text-2xl hover:font-semibold"><Link href="/brands"> Brands</Link></li>

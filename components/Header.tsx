@@ -1,6 +1,11 @@
+import { ClerkLoaded, SignInButton,  UserButton } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs/server';
+import { User } from 'lucide-react';
+
 import React from 'react'
 import { RxCross2 } from "react-icons/rx";
-const Header = () => {
+const Header = async () => {
+  const user = await currentUser();
   return (
     <div className="">
 {/* topper */}
@@ -9,9 +14,26 @@ const Header = () => {
           <div className="flex justify-center  items-center gap-4">
              <h4 className="">
            Sign up and get 20% off to your first order.</h4> 
-           <button className="font-semibold underline">
-           Sign Up Now
-            </button> 
+         
+           <ClerkLoaded>
+               {user ? (
+                <UserButton/>
+               ) : (
+                 <SignInButton mode="modal">
+                   <div
+                    className="flex justify-center items-center gap-1 md:gap-2 mr-4 cursor-pointer hover:underline hoverEffect">
+                     <p>Sign-Up</p>
+                     <User size={17} />
+                     
+                   </div>
+                 </SignInButton>
+               )}
+             
+ 
+               
+            
+                
+             </ClerkLoaded>
             </div>
             </div>
             <button className="sm:flex hidden mr-20 text-white justify-end items-end">

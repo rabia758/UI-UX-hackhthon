@@ -1,36 +1,60 @@
-import Image from "next/image"
+import { Products } from "@/sanity.types";
+import { urlFor } from "@/sanity/lib/image";
+import Image from "next/legacy/image";
+import React from "react";
+import { LuStar } from "react-icons/lu";
+// import ProductCartBar from "./ProductCartBar";
+import PriceView from "./PriceView";
+import Link from "next/link";
+import AddToCartButton from "./AddToCartButton";
 
+const ProductCard = ({ product }: { product: Products }) => {
+  console.log(product)
+  return (
+    <div className="border border-gray-300 rounded-lg overflow-hidden group text-sm">
+      <div className="border-b border-b-gray-300  overflow-hidden relative">
+        {product?.image && (
+          <Link href={`/product/${product.slug?.current }`}>
+            <Image
+              src={urlFor(product.image).url()}
+              alt="productImage"
+              width={500}
+              height={500}
+              loading="lazy"
+              className={`w-full max-h-96 object-cover overflow-hidden  transition-transform duration-500 `}
+            />
+          </Link>
+        )}
+       
+      </div>
+      <div className="p-5 flex flex-col gap-2">
+        <div className="flex items-center justify-between">
+          <p className="text-gray-500 font-medium">{product?.category}</p>
+          <div className="text-sky-400 flex items-center gap-1">
+            {Array.from({ length: 5 }).map((_, index) => {
+              const isLastStar = index === 4;
+              return (
+                <LuStar
+                  fill={!isLastStar ? "#fca99b" : "transparent"}
+                  key={index}
+                  className={`${isLastStar ? "text-gray-500" : "text-orange-200"}`}
+                />
+              );
+            })}
+          </div>
+        </div>
+        <p className="text-base text-gray-600 tracking-wide font-semibold line-clamp-1 capitalize">
+          {product?.name}
+        </p>
+        <PriceView
+          price={product?.price}
+          discount={product?.discount}
+        
+        />
+        <AddToCartButton product={product} />
+      </div>
+    </div>
+  );
+};
 
-
-export default function ProductCard({ tittle, src, rating, price, discount = true }: { tittle: string, src: string, rating: number, price: number, discount?: boolean }) {
-    return (
-        <>
-            <div className="h-auto w-auto  md:w-[260px] mx-8  md:h-[444px] ">
-                <div className="  h-auto w-auto md:h-[295px] md:w-[260px] rounded-4xl ">
-                    <Image src={src} alt="" height={300} width={300} className="rounded-[20px]" />
-                </div>
-                <div className="flex  flex-col justify-between mb-8 md:h-[110px]">
-                    <div className="h-[27px] w-[260px] font-semibold text-[16px]">{tittle}</div>
-                    {rating && <div className="flex gap-1">⭐⭐⭐⭐⭐
-                        <p>{rating} /<span className="text-[16px] text-[#00000099]">5</span></p>
-
-                    </div>}
-                    <div className=" md:mt-1 flex justify-start items-center gap-1"><p className="font-semibold  text-[20px]">${price}</p>
-
-                        {discount && <p className=" text-[20px] text-[#00000066]"> $242
-                            <span className="ml-2  hidden rounded-[20px] pl-2 w-[72px] bg-[#FF33331A]  text-[#FF3333] text-[18px]">
-                                -20%
-
-                            </span>
-                            </p>}
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-        </>
-    )
-}
+export default ProductCard;

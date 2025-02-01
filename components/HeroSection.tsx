@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-
+import Link from 'next/link';
 const HeroSection = () => {
   return (
     <div className="">
@@ -18,9 +18,11 @@ const HeroSection = () => {
             designed to bring out your individuality and cater to your sense of
             style.
           </p>
+          <Link href="/product">
           <button className="text-white bg-black w-full md:w-[200px] py-4 px-16 rounded-full hover:text-black hover:bg-white transition">
             Shop Now
           </button>
+          </Link>
         </div>
         <div className="mt-8 md:hidden grid grid-cols-2 gap-8">
           <div className="">
@@ -53,9 +55,9 @@ const HeroSection = () => {
                
         </div>
       </div>
-      <div className="h-[112px] grid md:grid-cols-5 grid-cols-3   pl-6  justify-center items-center bg-black">
+      <div className="h-[112px] grid md:grid-cols-5 grid-cols-2   pl-6  justify-center items-center bg-black">
         <Image src="/images/logo1.png" alt='logo1' width={150} height={50}  className='w-[100px] md:w-[150px]' />
-        <Image src="/images/logo2.png" alt='logo1' width={100} height={30}  className='w-[100px] md:w-[150px]'/>
+        <Image src="/images/logo2.png" alt='logo1' width={100} height={25}  className='w-[100px] md:w-[150px]'/>
         <Image src="/images/logo3.png" alt='logo1' width={150} height={50} className='w-[100px] md:w-[150px]' />
         <Image src="/images/logo4.png" alt='logo1' width={150} height={50}  className='w-[100px] md:w-[150px] mt-8' />
         <Image src="/images/logo5.png" alt='logo1' width={150} height={50} className='w-[100px] md:w-[150px]' />
