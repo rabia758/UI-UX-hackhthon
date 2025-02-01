@@ -46,8 +46,8 @@ const HeroSection = () => {
              <div className=" flex justify-center items-center">
 
                 <Image src="/images/home.png" alt='home' width={663} height={663} className='relative  z-0'  />
-                <Image src="/images/vector.png" alt="" width={60} height={60} className='absolute z-0  sm:mr-[500px] mr-[350px]'  />
-                <Image src="/images/vector 1.png" alt="" width={100} height={100} className='absolute z-0 sm:ml-[500px] ml-[300px] sm:mb-[300px] mb-[250px] ' />
+                <Image src="/images/Vector.png" alt="" width={60} height={60} className='absolute z-0  sm:mr-[500px] mr-[350px]'  />
+                <Image src="/images/Vector 1.png" alt="" width={100} height={100} className='absolute z-0 sm:ml-[500px] ml-[300px] sm:mb-[300px] mb-[250px] ' />
              </div>
            <div className="mt-[100px]">
 
